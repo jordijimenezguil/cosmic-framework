@@ -2,6 +2,10 @@
 ## The Framework to boost startup companies
 ### The easy simple scalable resilience unique backend with uncoupled domains, event-driven architecture and easily convertible to microservices in a short-term future.
 
+### Technology
+The Cosmic Framework is based in Spring boot Framework and apply reactive code using Reactor library.
+
+
 ### Feature:
 - CRUD (Create Read Update Delete) domains with exposed rest api.
 - Uncoupled domains with independent database schemas.

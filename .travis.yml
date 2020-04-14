@@ -1,0 +1,38 @@
+dist: trusty
+
+language: java
+
+branches:
+  only:
+    - master
+
+install:
+  - sudo start-docker-daemon
+
+jdk:
+  - oraclejdk8
+
+script:
+  - ./gradlew build --stacktrace
+
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+
+cache:
+  directories:
+    - $HOME/.m2
+    - $HOME/.gradle/caches
+    - $HOME/.gradle/wrapper
+
+deploy:
+  provider: script
+  script: ./gradlew installDist dockerPushImage --stacktrace
+  on:
+    branch: master
+
+after_failure:
+  - reports-publisher
+
+after_success:
+  - reports-publisher

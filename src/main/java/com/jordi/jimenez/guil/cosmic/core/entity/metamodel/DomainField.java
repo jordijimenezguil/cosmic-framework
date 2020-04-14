@@ -1,4 +1,4 @@
-package com.jordi.jimenez.guil.cosmic.core.metamodel;
+package com.jordi.jimenez.guil.cosmic.core.entity.metamodel;
 
 public class DomainField {
   private String name;

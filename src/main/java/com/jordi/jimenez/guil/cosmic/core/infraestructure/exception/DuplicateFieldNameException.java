@@ -1,4 +1,4 @@
-package com.jordi.jimenez.guil.cosmic.core.exception;
+package com.jordi.jimenez.guil.cosmic.core.infraestructure.exception;
 
 public class DuplicateFieldNameException extends RuntimeException {
   public DuplicateFieldNameException(String name) {

@@ -1,0 +1,37 @@
+spring:
+  main:
+    banner-mode: "OFF"
+  profiles:
+    active: dev
+  security:
+    user:
+      name: "application-1nq9vsqjas8vel6jo8tcuvtln5hkl1rpesrsv5msi0s059948umq"
+      password: "application-1dpnl4a69cteao8l1g890e00dfkufub4ellnfbmg3lqqenufs99j"
+  datasource:
+    url: "jdbc:postgresql://${sql.host}:${sql.port}/${sql.database}?stringtype=unspecified"
+    username: "${sql.username}"
+    password: "${sql.password}"
+    platform: "POSTGRESQL"
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+
+
+server:
+  port: 8000
+  tomcat:
+    accesslog:
+      enabled: true
+
+sql:
+  host: "192.168.99.127"
+  port: 5432
+  database: "cosmic"
+  username: "cosmic_user"
+  password: "cos_12345678_mic"

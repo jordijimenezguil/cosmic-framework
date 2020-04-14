@@ -12,10 +12,7 @@ import java.lang.annotation.Target;
 
 
 @EnableWebSecurity
-@SpringBootApplication(
-    scanBasePackages = {
-        "com.jordi.jimenez.guil.cosmic.core"
-    })
+@SpringBootApplication(scanBasePackages = {"com.jordi.jimenez.guil"})
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 @Import(CosmicConfiguration.class)

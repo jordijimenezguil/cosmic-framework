@@ -23,10 +23,19 @@ public class CosmicUseCase {
         .flatMap(domainMetaModel -> keyWordChecker.isValid(domainMetaModel.getName())
             ? Mono.just(TRUE)
             : Mono.error(new KeyWordNotAllowDomainNameException(domainMetaModel.getName())))
+        .doOnError(throwable -> {
+          throwable.printStackTrace();
+          stopApplication();
+        })
         .collectList()
+        .doOnNext(b -> databaseUseCase.start(metaModel))
         .map(booleans -> TRUE)
         .block();
   }
 
+
+  private void stopApplication() {
+    System.exit(1);
+  }
 
 }

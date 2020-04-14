@@ -1,7 +1,6 @@
-package com.jordi.jimenez.guil.cosmic.core.entity.metamodel;
+package com.jordi.jimenez.guil.cosmic.core.domain.metamodel;
 
 
-import com.jordi.jimenez.guil.cosmic.core.constraint.KeyWordDomainNameChecked;
 import com.jordi.jimenez.guil.cosmic.core.infraestructure.exception.DomainFieldNotFoundException;
 import com.jordi.jimenez.guil.cosmic.core.infraestructure.exception.DuplicateFieldNameException;
 import com.jordi.jimenez.guil.cosmic.core.infraestructure.exception.UniqueIdentifierFieldNotFoundException;
@@ -15,12 +14,8 @@ import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 public class DomainMetaModel {
-
-  @KeyWordDomainNameChecked
   private String name;
-
   private Map<String, DomainField> fields = new LinkedHashMap<>();
-
 
   public String getName() {
     return name;

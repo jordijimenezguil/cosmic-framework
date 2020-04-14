@@ -1,6 +1,6 @@
 package bootstrap;
 
-import com.jordi.jimenez.guil.cosmic.core.entity.metamodel.MetaModel;
+import com.jordi.jimenez.guil.cosmic.core.domain.metamodel.MetaModel;
 
 public class MyBusinessConfiguration {
 

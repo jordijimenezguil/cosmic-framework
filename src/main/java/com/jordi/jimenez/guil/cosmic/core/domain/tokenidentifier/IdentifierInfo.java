@@ -1,4 +1,4 @@
-package com.jordi.jimenez.guil.cosmic.core.entity.tokenidentifier;
+package com.jordi.jimenez.guil.cosmic.core.domain.tokenidentifier;
 
 
 public class IdentifierInfo {

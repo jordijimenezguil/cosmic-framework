@@ -1,9 +1,7 @@
-package com.jordi.jimenez.guil.cosmic.core.entity.metamodel;
+package com.jordi.jimenez.guil.cosmic.core.domain.metamodel;
 
-import com.jordi.jimenez.guil.cosmic.core.constraint.KeyWordDomainNameChecked;
 import com.jordi.jimenez.guil.cosmic.core.infraestructure.exception.DuplicateDomainNameException;
 
-import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
@@ -29,7 +27,6 @@ public class MetaModel {
     }
 
 
-    @KeyWordDomainNameChecked
     public DomainMetaModel.DomainMetaModelBuilder withDomain(String name) {
       if (instance.domains.containsKey(name)) {
         throw new DuplicateDomainNameException(name);

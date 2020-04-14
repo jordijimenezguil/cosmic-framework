@@ -1,22 +1,17 @@
 package bootstrap;
 
-import com.jordi.jimenez.guil.cosmic.core.usecase.DatabaseUseCase;
+import com.jordi.jimenez.guil.cosmic.core.common.annotation.EnableCosmicApplication;
+import com.jordi.jimenez.guil.cosmic.core.usecase.CosmicUseCase;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 
-@EnableWebSecurity
-@SpringBootApplication(
-    scanBasePackages = {
-        "com.jordi.jimenez.guil.cosmic.core.infraestructure"
-    })
+@EnableCosmicApplication
 public class MyBusinessApplication {
   public static void main(String[] args) {
     ConfigurableApplicationContext applicationContext = SpringApplication.run(MyBusinessApplication.class, args);
 
     applicationContext
-        .getBean(DatabaseUseCase.class)
+        .getBean(CosmicUseCase.class)
         .start(MyBusinessConfiguration
             .myBusinessMetaModel());
   }

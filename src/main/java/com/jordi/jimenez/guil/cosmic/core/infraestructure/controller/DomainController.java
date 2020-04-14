@@ -1,18 +1,18 @@
 package com.jordi.jimenez.guil.cosmic.core.infraestructure.controller;
 
-import com.jordi.jimenez.guil.cosmic.core.entity.metamodel.DomainMetaModel;
-import com.jordi.jimenez.guil.cosmic.core.entity.metamodel.InfraDatabaseRepository;
-import com.jordi.jimenez.guil.cosmic.core.entity.metamodel.MetaModel;
+import com.jordi.jimenez.guil.cosmic.core.domain.metamodel.DomainMetaModel;
+import com.jordi.jimenez.guil.cosmic.core.domain.metamodel.InfraDatabaseRepository;
+import com.jordi.jimenez.guil.cosmic.core.domain.metamodel.MetaModel;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import static com.jordi.jimenez.guil.cosmic.core.entity.metamodel.FieldType.BOOLEAN;
-import static com.jordi.jimenez.guil.cosmic.core.entity.metamodel.FieldType.FLOAT;
-import static com.jordi.jimenez.guil.cosmic.core.entity.metamodel.FieldType.INTEGER;
-import static com.jordi.jimenez.guil.cosmic.core.entity.metamodel.FieldType.LONG;
-import static com.jordi.jimenez.guil.cosmic.core.entity.metamodel.FieldType.STRING;
-import static com.jordi.jimenez.guil.cosmic.core.entity.metamodel.FieldType.TIMESTAMP;
+import static com.jordi.jimenez.guil.cosmic.core.domain.metamodel.FieldType.BOOLEAN;
+import static com.jordi.jimenez.guil.cosmic.core.domain.metamodel.FieldType.FLOAT;
+import static com.jordi.jimenez.guil.cosmic.core.domain.metamodel.FieldType.INTEGER;
+import static com.jordi.jimenez.guil.cosmic.core.domain.metamodel.FieldType.LONG;
+import static com.jordi.jimenez.guil.cosmic.core.domain.metamodel.FieldType.STRING;
+import static com.jordi.jimenez.guil.cosmic.core.domain.metamodel.FieldType.TIMESTAMP;
 
 
 @RestController

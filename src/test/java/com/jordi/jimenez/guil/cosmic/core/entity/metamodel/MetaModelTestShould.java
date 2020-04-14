@@ -1,12 +1,13 @@
 package com.jordi.jimenez.guil.cosmic.core.entity.metamodel;
 
 import com.jordi.jimenez.guil.cosmic.core.TestHelper;
+import com.jordi.jimenez.guil.cosmic.core.domain.metamodel.MetaModel;
 import com.jordi.jimenez.guil.cosmic.core.infraestructure.exception.DuplicateDomainNameException;
 import com.jordi.jimenez.guil.cosmic.core.infraestructure.exception.DuplicateFieldNameException;
 import org.junit.jupiter.api.Test;
 
-import static com.jordi.jimenez.guil.cosmic.core.entity.metamodel.FieldType.INTEGER;
-import static com.jordi.jimenez.guil.cosmic.core.entity.metamodel.FieldType.STRING;
+import static com.jordi.jimenez.guil.cosmic.core.domain.metamodel.FieldType.INTEGER;
+import static com.jordi.jimenez.guil.cosmic.core.domain.metamodel.FieldType.STRING;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 

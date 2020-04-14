@@ -1,6 +1,6 @@
 package com.jordi.jimenez.guil.cosmic.core.infraestructure.configuration;
 
-import com.jordi.jimenez.guil.cosmic.core.entity.metamodel.InfraDatabaseRepository;
+import com.jordi.jimenez.guil.cosmic.core.domain.metamodel.InfraDatabaseRepository;
 import com.jordi.jimenez.guil.cosmic.core.infraestructure.repository.DomainQueryGenerator;
 import com.jordi.jimenez.guil.cosmic.core.infraestructure.repository.InfraDatabasePostgresqlRepository;
 import com.jordi.jimenez.guil.cosmic.core.infraestructure.repository.QueryContainer;

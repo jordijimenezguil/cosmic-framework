@@ -1,16 +1,25 @@
-package com.jordi.jimenez.guil.cosmic.core.metamodel;
+package com.jordi.jimenez.guil.cosmic.core.entity.metamodel;
 
-import com.jordi.jimenez.guil.cosmic.core.exception.DomainFieldNotFoundException;
-import com.jordi.jimenez.guil.cosmic.core.exception.DuplicateFieldNameException;
 
-import java.util.HashMap;
+import com.jordi.jimenez.guil.cosmic.core.constraint.KeyWordDomainNameChecked;
+import com.jordi.jimenez.guil.cosmic.core.infraestructure.exception.DomainFieldNotFoundException;
+import com.jordi.jimenez.guil.cosmic.core.infraestructure.exception.DuplicateFieldNameException;
+import com.jordi.jimenez.guil.cosmic.core.infraestructure.exception.UniqueIdentifierFieldNotFoundException;
+
+import java.util.Collection;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 public class DomainMetaModel {
+
+  @KeyWordDomainNameChecked
   private String name;
-  private Map<String, DomainField> fields = new HashMap<>();
+
+  private Map<String, DomainField> fields = new LinkedHashMap<>();
 
 
   public String getName() {
@@ -44,6 +53,26 @@ public class DomainMetaModel {
     return Optional
         .ofNullable(this.fields.get(name))
         .orElseThrow(() -> new DomainFieldNotFoundException(name));
+  }
+
+  public DomainField getUniqueIdentifierField() {
+    return this.fields.keySet().stream()
+        .map(s -> this.fields.get(s))
+        .filter(DomainField::getUniqueIdentifier)
+        .findFirst()
+        .orElseThrow(() -> new UniqueIdentifierFieldNotFoundException(name));
+  }
+
+  public List<DomainField> getNotUniqueIdentiferFields() {
+    return this.fields.keySet().stream()
+        .map(s -> this.fields.get(s))
+        .filter(domainField -> !domainField.getUniqueIdentifier())
+        .collect(Collectors.toList());
+  }
+
+
+  public Collection<DomainField> getAllFields() {
+    return this.fields.values();
   }
 
 

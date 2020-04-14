@@ -1,35 +1,23 @@
 package bootstrap;
 
-import com.jordi.jimenez.guil.cosmic.core.metamodel.MetaModel;
+import com.jordi.jimenez.guil.cosmic.core.usecase.DatabaseUseCase;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 
-import static com.jordi.jimenez.guil.cosmic.core.metamodel.FieldType.INTEGER;
-import static com.jordi.jimenez.guil.cosmic.core.metamodel.FieldType.STRING;
-
-@SpringBootApplication
+@EnableWebSecurity
+@SpringBootApplication(
+    scanBasePackages = {
+        "com.jordi.jimenez.guil.cosmic.core.infraestructure"
+    })
 public class MyBusinessApplication {
-
   public static void main(String[] args) {
-    SpringApplication.run(MyBusinessApplication.class, args);
+    ConfigurableApplicationContext applicationContext = SpringApplication.run(MyBusinessApplication.class, args);
 
-
-    MetaModel metaModel = MetaModel.builder()
-        .withDomain("user")
-        .withUniqueIdentifierField("id", "ID", INTEGER)
-        .withField("name", "NAME", STRING)
-        .end()
-
-        .withDomain("article")
-        .withUniqueIdentifierField("id", "ID", INTEGER)
-        .withField("title", "TITLE", STRING)
-        .withField("description", "DESC", STRING)
-        .end()
-
-        .build();
-
-    metaModel.toString();
+    applicationContext
+        .getBean(DatabaseUseCase.class)
+        .start(MyBusinessConfiguration
+            .myBusinessMetaModel());
   }
-
-
 }

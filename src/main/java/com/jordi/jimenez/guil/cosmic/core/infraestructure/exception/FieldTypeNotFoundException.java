@@ -1,4 +1,4 @@
-package com.jordi.jimenez.guil.cosmic.core.exception;
+package com.jordi.jimenez.guil.cosmic.core.infraestructure.exception;
 
 public class FieldTypeNotFoundException extends RuntimeException {
   public FieldTypeNotFoundException(String value) {

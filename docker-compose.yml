@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+  postgres:
+    image: postgres:12.2
+    environment:
+      POSTGRES_USER: cosmic_user
+      POSTGRES_PASSWORD: cos_12345678_mic
+      POSTGRES_DB: cosmic
+    ports:
+      - 5432:5432
+

@@ -1,4 +1,4 @@
-package com.jordi.jimenez.guil.bootstrap;
+package com.jordi.jimenez.guil.demobusinessapp;
 
 import com.jordi.jimenez.guil.cosmic.core.common.annotation.EnableCosmicApplication;
 import org.springframework.boot.SpringApplication;

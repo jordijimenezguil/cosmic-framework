@@ -1,7 +1,7 @@
 package com.jordi.jimenez.guil.cosmic.core.infraestructure.repository;
 
-import com.jordi.jimenez.guil.cosmic.core.entity.metamodel.DomainMetaModel;
-import com.jordi.jimenez.guil.cosmic.core.entity.metamodel.InfraDatabaseRepository;
+import com.jordi.jimenez.guil.cosmic.core.domain.metamodel.DomainMetaModel;
+import com.jordi.jimenez.guil.cosmic.core.domain.metamodel.InfraDatabaseRepository;
 import org.postgresql.util.PSQLException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

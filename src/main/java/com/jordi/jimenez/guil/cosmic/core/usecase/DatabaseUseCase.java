@@ -1,7 +1,7 @@
 package com.jordi.jimenez.guil.cosmic.core.usecase;
 
-import com.jordi.jimenez.guil.cosmic.core.entity.metamodel.InfraDatabaseRepository;
-import com.jordi.jimenez.guil.cosmic.core.entity.metamodel.MetaModel;
+import com.jordi.jimenez.guil.cosmic.core.domain.metamodel.InfraDatabaseRepository;
+import com.jordi.jimenez.guil.cosmic.core.domain.metamodel.MetaModel;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -13,12 +13,11 @@ public class DatabaseUseCase {
     this.infraDatabaseRepository = infraDatabaseRepository;
   }
 
-  public void start(MetaModel metaModel) {
-    Mono.zip(
+  public Mono<Boolean> start(MetaModel metaModel) {
+    return Mono.zip(
         createControlSchemaIfNotExists(),
         createControlTableIfNotExists())
-        .flatMap(t -> t.getT1() == 1 && t.getT2() == 1 ? createDomains(metaModel) : Mono.empty())
-        .block();
+        .flatMap(t -> t.getT1() == 1 && t.getT2() == 1 ? createDomains(metaModel) : Mono.empty());
   }
 
 

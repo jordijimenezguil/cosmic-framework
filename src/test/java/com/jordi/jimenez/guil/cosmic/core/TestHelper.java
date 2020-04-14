@@ -1,13 +1,13 @@
 package com.jordi.jimenez.guil.cosmic.core;
 
-import com.jordi.jimenez.guil.cosmic.core.entity.metamodel.MetaModel;
+import com.jordi.jimenez.guil.cosmic.core.domain.metamodel.MetaModel;
 
-import static com.jordi.jimenez.guil.cosmic.core.entity.metamodel.FieldType.BOOLEAN;
-import static com.jordi.jimenez.guil.cosmic.core.entity.metamodel.FieldType.FLOAT;
-import static com.jordi.jimenez.guil.cosmic.core.entity.metamodel.FieldType.INTEGER;
-import static com.jordi.jimenez.guil.cosmic.core.entity.metamodel.FieldType.LONG;
-import static com.jordi.jimenez.guil.cosmic.core.entity.metamodel.FieldType.STRING;
-import static com.jordi.jimenez.guil.cosmic.core.entity.metamodel.FieldType.TIMESTAMP;
+import static com.jordi.jimenez.guil.cosmic.core.domain.metamodel.FieldType.BOOLEAN;
+import static com.jordi.jimenez.guil.cosmic.core.domain.metamodel.FieldType.FLOAT;
+import static com.jordi.jimenez.guil.cosmic.core.domain.metamodel.FieldType.INTEGER;
+import static com.jordi.jimenez.guil.cosmic.core.domain.metamodel.FieldType.LONG;
+import static com.jordi.jimenez.guil.cosmic.core.domain.metamodel.FieldType.STRING;
+import static com.jordi.jimenez.guil.cosmic.core.domain.metamodel.FieldType.TIMESTAMP;
 
 public class TestHelper {
 

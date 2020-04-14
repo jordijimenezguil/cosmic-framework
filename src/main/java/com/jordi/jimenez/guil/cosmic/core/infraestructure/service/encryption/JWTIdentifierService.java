@@ -1,9 +1,9 @@
 package com.jordi.jimenez.guil.cosmic.core.infraestructure.service.encryption;
 
 
-import com.jordi.jimenez.guil.cosmic.core.entity.tokenidentifier.AccessDeniedException;
-import com.jordi.jimenez.guil.cosmic.core.entity.tokenidentifier.IdentifierInfo;
-import com.jordi.jimenez.guil.cosmic.core.entity.tokenidentifier.UserRole;
+import com.jordi.jimenez.guil.cosmic.core.domain.tokenidentifier.AccessDeniedException;
+import com.jordi.jimenez.guil.cosmic.core.domain.tokenidentifier.IdentifierInfo;
+import com.jordi.jimenez.guil.cosmic.core.domain.tokenidentifier.UserRole;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 

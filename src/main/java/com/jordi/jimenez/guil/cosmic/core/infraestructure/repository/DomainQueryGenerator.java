@@ -1,7 +1,7 @@
 package com.jordi.jimenez.guil.cosmic.core.infraestructure.repository;
 
-import com.jordi.jimenez.guil.cosmic.core.entity.metamodel.DomainField;
-import com.jordi.jimenez.guil.cosmic.core.entity.metamodel.DomainMetaModel;
+import com.jordi.jimenez.guil.cosmic.core.domain.metamodel.DomainField;
+import com.jordi.jimenez.guil.cosmic.core.domain.metamodel.DomainMetaModel;
 
 public class DomainQueryGenerator {
   private final static String SPACE = " ";

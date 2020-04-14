@@ -1,4 +1,4 @@
-package com.jordi.jimenez.guil.cosmic.core.entity.metamodel;
+package com.jordi.jimenez.guil.cosmic.core.domain.metamodel;
 
 import com.jordi.jimenez.guil.cosmic.core.infraestructure.exception.FieldTypeNotFoundException;
 

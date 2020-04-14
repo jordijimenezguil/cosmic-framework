@@ -1,7 +1,7 @@
 package com.jordi.jimenez.guil.cosmic.core.infraestructure.repository;
 
 import com.jordi.jimenez.guil.cosmic.core.TestHelper;
-import com.jordi.jimenez.guil.cosmic.core.entity.metamodel.MetaModel;
+import com.jordi.jimenez.guil.cosmic.core.domain.metamodel.MetaModel;
 import org.junit.jupiter.api.Test;
 
 import static com.jordi.jimenez.guil.cosmic.core.TestHelper.DOMAIN_NAME_1;

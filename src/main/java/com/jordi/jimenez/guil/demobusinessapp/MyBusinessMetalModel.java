@@ -1,4 +1,4 @@
-package com.jordi.jimenez.guil.bootstrap;
+package com.jordi.jimenez.guil.demobusinessapp;
 
 import com.jordi.jimenez.guil.cosmic.core.common.annotation.CosmicMetaModel;
 import com.jordi.jimenez.guil.cosmic.core.common.annotation.CosmicMetalModelable;
@@ -10,7 +10,7 @@ public class MyBusinessMetalModel implements CosmicMetalModelable {
 
   @Override
   public MetaModel getMetalModel() {
-    return MetaModel.builder().withDomain("user")
+    return MetaModel.builder().withDomain("client")
         .end()
         .build();
   }

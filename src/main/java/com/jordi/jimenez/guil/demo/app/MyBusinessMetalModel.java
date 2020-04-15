@@ -1,4 +1,4 @@
-package com.jordi.jimenez.guil.demobusinessapp;
+package com.jordi.jimenez.guil.demo.app;
 
 import com.jordi.jimenez.guil.cosmic.core.common.annotation.CosmicMetaModel;
 import com.jordi.jimenez.guil.cosmic.core.common.annotation.CosmicMetalModelable;

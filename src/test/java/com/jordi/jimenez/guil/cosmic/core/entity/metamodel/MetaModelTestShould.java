@@ -2,12 +2,12 @@ package com.jordi.jimenez.guil.cosmic.core.entity.metamodel;
 
 import com.jordi.jimenez.guil.cosmic.core.TestHelper;
 import com.jordi.jimenez.guil.cosmic.core.domain.metamodel.MetaModel;
-import com.jordi.jimenez.guil.cosmic.core.infraestructure.exception.DuplicateDomainNameException;
-import com.jordi.jimenez.guil.cosmic.core.infraestructure.exception.DuplicateFieldNameException;
+import com.jordi.jimenez.guil.cosmic.core.exception.DuplicateDomainNameException;
+import com.jordi.jimenez.guil.cosmic.core.exception.DuplicateFieldNameException;
 import org.junit.jupiter.api.Test;
 
-import static com.jordi.jimenez.guil.cosmic.core.domain.metamodel.FieldType.INTEGER;
-import static com.jordi.jimenez.guil.cosmic.core.domain.metamodel.FieldType.STRING;
+import static com.jordi.jimenez.guil.cosmic.core.domain.metamodel.DomainFieldMetaModelType.INTEGER;
+import static com.jordi.jimenez.guil.cosmic.core.domain.metamodel.DomainFieldMetaModelType.STRING;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -29,7 +29,7 @@ class MetaModelTestShould {
     assertThrows(DuplicateDomainNameException.class,
         () -> MetaModel.builder()
             .withDomain("user")
-            .withUniqueIdentifierField("id", "ID", INTEGER)
+            .withUniqueIdentifierField("id", "ID")
             .withField("name", "NAME", STRING)
             .end()
 
@@ -44,7 +44,7 @@ class MetaModelTestShould {
     assertThrows(DuplicateFieldNameException.class,
         () -> MetaModel.builder()
             .withDomain("user")
-            .withUniqueIdentifierField("id", "ID", INTEGER)
+            .withUniqueIdentifierField("id", "ID")
             .withField("id", "NAME", STRING)
             .end()
 

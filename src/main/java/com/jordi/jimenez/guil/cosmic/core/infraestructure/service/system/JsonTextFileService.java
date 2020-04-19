@@ -1,6 +1,6 @@
 package com.jordi.jimenez.guil.cosmic.core.infraestructure.service.system;
 
-import com.jordi.jimenez.guil.cosmic.core.infraestructure.exception.ParseFileToTextErrorException;
+import com.jordi.jimenez.guil.cosmic.core.exception.ParseFileToTextErrorException;
 import org.apache.tomcat.util.http.fileupload.util.Streams;
 
 import java.io.IOException;

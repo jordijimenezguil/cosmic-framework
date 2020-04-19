@@ -1,6 +1,6 @@
 package com.jordi.jimenez.guil.cosmic.core.infraestructure.configuration;
 
-import com.jordi.jimenez.guil.cosmic.core.common.annotation.CosmicMetalModelable;
+import com.jordi.jimenez.guil.cosmic.core.common.annotation.CosmicMetalModelContext;
 import com.jordi.jimenez.guil.cosmic.core.usecase.CosmicUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
@@ -16,10 +16,10 @@ public class CosmicConfiguration {
 
   @EventListener(ApplicationReadyEvent.class)
   public void startCosmicApplication() {
-    CosmicMetalModelable cosmicMetalModelable = context.getBean(CosmicMetalModelable.class);
+    CosmicMetalModelContext cosmicMetalModelContext = context.getBean(CosmicMetalModelContext.class);
     CosmicUseCase cosmicUseCase = context.getBean(CosmicUseCase.class);
 
-    cosmicUseCase.start(cosmicMetalModelable.getMetalModel());
+    cosmicUseCase.start(cosmicMetalModelContext.getMetalModel());
   }
 
 }

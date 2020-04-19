@@ -10,9 +10,9 @@ public interface InfraDatabaseRepository {
 
   Mono<Integer> createControlSchemaIfNotExists();
 
-  Mono<Integer> createControlTable();
+  Mono<Integer> createControlTable(MetaModel metaModel);
 
-  Mono<Integer> updateVersionControl();
+  Mono<Integer> updateVersionControl(MetaModel metaModel);
 
   Mono<Integer> clearDatabase();
 }

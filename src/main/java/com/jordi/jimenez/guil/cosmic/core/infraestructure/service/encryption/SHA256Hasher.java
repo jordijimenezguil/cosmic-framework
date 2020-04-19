@@ -1,7 +1,7 @@
 package com.jordi.jimenez.guil.cosmic.core.infraestructure.service.encryption;
 
 
-import com.jordi.jimenez.guil.cosmic.core.infraestructure.exception.HasherErrorException;
+import com.jordi.jimenez.guil.cosmic.core.exception.HasherErrorException;
 import org.bouncycastle.util.encoders.Hex;
 
 import java.nio.charset.StandardCharsets;

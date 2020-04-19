@@ -1,7 +1,7 @@
 package com.jordi.jimenez.guil.cosmic.core.domain.tokenidentifier;
 
 
-import com.jordi.jimenez.guil.cosmic.core.infraestructure.exception.UserRoleNotFoundException;
+import com.jordi.jimenez.guil.cosmic.core.exception.UserRoleNotFoundException;
 
 import java.util.Arrays;
 

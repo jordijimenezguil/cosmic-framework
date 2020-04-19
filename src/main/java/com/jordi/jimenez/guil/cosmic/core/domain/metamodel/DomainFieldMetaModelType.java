@@ -1,0 +1,45 @@
+package com.jordi.jimenez.guil.cosmic.core.domain.metamodel;
+
+import com.jordi.jimenez.guil.cosmic.core.exception.FieldTypeNotFoundException;
+
+import java.util.Arrays;
+
+public enum DomainFieldMetaModelType {
+
+
+  IDENTIFIER("identifier", "BIGSERIAL"),
+  BOOLEAN("Boolean", "BIT"),
+  BYTE("Byte", "TINYINT"),
+  SHORT("Short", "SMALLINT"),
+  INTEGER("Integer", "INTEGER"),
+  LONG("Long", "BIGINT"),
+  FLOAT("Float", "REAL"),
+  DOUBLE("Double", "DOUBLE"),
+  BIG_DECIMAL("BigDecimal", "NUMERIC"),
+
+  STRING("String", "TEXT"),
+  CHARACTER("Character", "TEXT"),
+
+  DATE("Date", "DATE"),
+  TIME("Time", "TIME"),
+  TIMESTAMP("Timestamp", "TIMESTAMP"),
+
+  ;
+
+
+  public String javaType;
+  public String sqlType;
+
+  DomainFieldMetaModelType(String javaType, String sqlType) {
+    this.javaType = javaType;
+    this.sqlType = sqlType;
+  }
+
+
+  public DomainFieldMetaModelType getFieldTypeByValue(String value) {
+    return Arrays.stream(DomainFieldMetaModelType.values())
+        .filter(fieldType -> fieldType.javaType.equals(value))
+        .findFirst()
+        .orElseThrow(() -> new FieldTypeNotFoundException(value));
+  }
+}

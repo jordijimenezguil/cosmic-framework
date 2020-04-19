@@ -2,6 +2,9 @@ package com.jordi.jimenez.guil.cosmic.core.infraestructure.repository;
 
 import com.jordi.jimenez.guil.cosmic.core.domain.metamodel.DomainMetaModel;
 import com.jordi.jimenez.guil.cosmic.core.domain.metamodel.InfraDatabaseRepository;
+import com.jordi.jimenez.guil.cosmic.core.domain.metamodel.MetaModel;
+import com.jordi.jimenez.guil.cosmic.core.infraestructure.repository.postgresql.masterdata.PSQLError;
+import com.jordi.jimenez.guil.cosmic.core.infraestructure.repository.postgresql.queryfactory.InfraMetaModelQueryFactory;
 import org.postgresql.util.PSQLException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,20 +27,16 @@ public class InfraDatabasePostgresqlRepository implements InfraDatabaseRepositor
 
 
   private NamedParameterJdbcTemplate jdbcTemplate;
-  private DomainQueryGenerator domainQueryGenerator;
 
-
-  public InfraDatabasePostgresqlRepository(NamedParameterJdbcTemplate jdbcTemplate,
-                                           DomainQueryGenerator domainQueryGenerator) {
+  public InfraDatabasePostgresqlRepository(NamedParameterJdbcTemplate jdbcTemplate) {
     this.jdbcTemplate = jdbcTemplate;
-    this.domainQueryGenerator = domainQueryGenerator;
   }
 
 
   @Override
   public Mono<Integer> createDomainSchema(DomainMetaModel domainMetaModel) {
     return Mono.fromCallable(() -> jdbcTemplate
-        .update(domainQueryGenerator.createDomainSchema(domainMetaModel), EMPTY_MAP))
+        .update(InfraMetaModelQueryFactory.createDomainSchema(domainMetaModel), EMPTY_MAP))
         .onErrorResume(throwable -> throwable instanceof BadSqlGrammarException
             ? checkIfExistsPSQLErrors(throwable)
             : Mono.just(RESULT_NOT_AFFECTED_ROWS));
@@ -47,7 +46,7 @@ public class InfraDatabasePostgresqlRepository implements InfraDatabaseRepositor
   @Override
   public Mono<Integer> createDomainTable(DomainMetaModel domainMetaModel) {
     return Mono.fromCallable(() -> jdbcTemplate
-        .update(domainQueryGenerator.createDomainTable(domainMetaModel), EMPTY_MAP))
+        .update(InfraMetaModelQueryFactory.createDomainTable(domainMetaModel), EMPTY_MAP))
         .onErrorResume(throwable -> throwable instanceof BadSqlGrammarException
             ? checkIfExistsPSQLErrors(throwable)
             : Mono.just(RESULT_NOT_AFFECTED_ROWS));
@@ -56,7 +55,7 @@ public class InfraDatabasePostgresqlRepository implements InfraDatabaseRepositor
 
   @Override
   public Mono<Integer> createControlSchemaIfNotExists() {
-    return Mono.fromCallable(() -> jdbcTemplate.update(domainQueryGenerator.createControlSchema(), EMPTY_MAP))
+    return Mono.fromCallable(() -> jdbcTemplate.update(InfraMetaModelQueryFactory.createControlSchema(), EMPTY_MAP))
         .onErrorResume(throwable -> throwable instanceof BadSqlGrammarException
             ? checkIfExistsPSQLErrors(throwable)
             : Mono.just(RESULT_NOT_AFFECTED_ROWS));
@@ -77,9 +76,9 @@ public class InfraDatabasePostgresqlRepository implements InfraDatabaseRepositor
 
 
   @Override
-  public Mono<Integer> createControlTable() {
-    return Mono.fromCallable(() -> jdbcTemplate.update(domainQueryGenerator.createControlTable(), EMPTY_MAP))
-        .doOnNext(integer -> jdbcTemplate.update(domainQueryGenerator.insertVersionControl(), EMPTY_MAP))
+  public Mono<Integer> createControlTable(MetaModel metaModel) {
+    return Mono.fromCallable(() -> jdbcTemplate.update(InfraMetaModelQueryFactory.createControlTable(), EMPTY_MAP))
+        .doOnNext(integer -> jdbcTemplate.update(InfraMetaModelQueryFactory.insertVersionControl(metaModel), EMPTY_MAP))
         .onErrorResume(throwable -> throwable instanceof BadSqlGrammarException
             ? checkIfExistsPSQLErrors(throwable)
             : Mono.just(RESULT_NOT_AFFECTED_ROWS));
@@ -87,9 +86,9 @@ public class InfraDatabasePostgresqlRepository implements InfraDatabaseRepositor
 
 
   @Override
-  public Mono<Integer> updateVersionControl() {
-    return Mono.fromCallable(() -> jdbcTemplate.update(domainQueryGenerator.deleteVersionControl(), EMPTY_MAP))
-        .doOnNext(integer -> jdbcTemplate.update(domainQueryGenerator.insertVersionControl(), EMPTY_MAP));
+  public Mono<Integer> updateVersionControl(MetaModel metaModel) {
+    return Mono.fromCallable(() -> jdbcTemplate.update(InfraMetaModelQueryFactory.deleteVersionControl(), EMPTY_MAP))
+        .doOnNext(integer -> jdbcTemplate.update(InfraMetaModelQueryFactory.insertVersionControl(metaModel), EMPTY_MAP));
   }
 
 
